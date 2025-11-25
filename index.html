@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" 
+    content="width=device-width, initial-scale=1.0">
+    <title>React learning</title>
+</head>
+<body>
+
+    <!-- DIV onde o React vai "morar".
+         Tudo que o React renderiza aparece dentro desse #root -->
+    <div id="root"></div>
+
+    <!-- Script de terceiros (do professor). Não é React.
+         Apenas algum código auxiliar que ele colocou. -->
+    <script src="https://alexgeracaotech.github.io/lib/script.js"></script>
+
+    <!-- Carrega o React pelo CDN (versão de desenvolvimento, não otimizada) -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+
+    <!-- Carrega o ReactDOM, que conecta o React à DOM do navegador -->
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Carrega o Babel pelo CDN.
+         O Babel serve pra traduzir JSX em JavaScript normal.
+         Sem isso, o navegador não entende: <App/> -->
+    <script
+        crossorigin src="http://unpkg.com/@babel/standalone/babel.min.js"> 
+    </script>
+
+    <!-- Aqui começa o código React.
+         type="text/babel" diz ao Babel: “ei, traduz esse JSX pra mim”. -->
+    <script type="text/babel">
+
+        // Seleciona a div #root onde o React vai renderizar
+        const root = document.querySelector('#root')
+
+        // Cria um componente funcional (uma função que retorna JSX)
+        const Button = () => {
+            return <button>Enter</button>
+
+        }
+        const Input = (props) => {
+            return <input type={props.type} />;
+        }
+        const App = () => {
+            return (
+                <>
+                <Input type='name'/>
+                <Input type='password'/>
+                <Input type='checkbox'/>
+                </>
+
+            )
+            // return mostra o título na tela
+        }
+
+        // Conecta o React ao #root e renderiza o componente App
+        ReactDOM.createRoot(root).render(<App/>);
+
+    </script>
+    
+</body>
+</html>
